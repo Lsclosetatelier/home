@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>L’s Closet Atelier</title>
-  <!-- Load elegant serif and sans‑serif fonts to evoke a high‑fashion vibe -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary-color: #000;
@@ -13,17 +12,15 @@
       --accent-color: #d4af37;
       --max-width: 900px;
     }
-
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Lora', serif;
       color: var(--primary-color);
       background-color: #fdfdfd;
       line-height: 1.6;
     }
-
-    header {
-      background-image: url('NakupendaPhotography-18.jpeg');
+    /* Base styling for hero sections */
+    .hero {
       background-size: cover;
       background-position: center;
       height: 60vh;
@@ -31,11 +28,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
       color: var(--secondary-color);
     }
-
-    header::before {
+    .hero::before {
       content: "";
       position: absolute;
       top: 0;
@@ -44,58 +43,53 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.55);
     }
-
-    header .inner {
-      position: relative;
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50%;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
       z-index: 1;
     }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-
-    section {
-      padding: 2rem 1rem;
-      max-width: var(--max-width);
-      margin: -4rem auto 2rem;
-    }
-
-    /* Styles for service links */
+    .hero-one { background-image: url('NakupendaPhotography-18.jpeg'); }
+    .hero-two { background-image: url('background.png'); }
     .link-options {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
-    }
-    .service-link {
-      display: block;
+      gap: 1rem;
       width: 100%;
       max-width: 500px;
-      padding: 1rem 2rem;
-      background: #fff;
-      border: 2px solid var(--primary-color);
-      border-radius: 8px;
-      text-align: center;
-      text-decoration: none;
+      z-index: 2;
+    }
+    .service-link {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: var(--secondary-color);
       color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
       font-weight: 600;
+      font-size: 1rem;
+      font-family: 'Work Sans', sans-serif;
+      text-decoration: none;
+      border: none;
+      border-radius: 0;
+      text-align: center;
       transition: background 0.3s, color 0.3s;
     }
     .service-link:hover {
       background: var(--primary-color);
       color: var(--secondary-color);
     }
-
-    /* Top navigation bar styles */
+    /* Top navigation */
     .top-nav {
       display: flex;
       align-items: center;
@@ -107,97 +101,128 @@
       top: 0;
       z-index: 100;
     }
-
     .top-nav .nav-left,
     .top-nav .nav-right {
       display: flex;
       gap: 1rem;
       align-items: center;
+      flex: 1;
     }
-
-    .top-nav a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-size: 1rem;
+    .top-nav .icon {
       display: flex;
       align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
     }
-
     .top-nav svg {
       width: 1.4rem;
       height: 1.4rem;
       fill: currentColor;
     }
-
     .top-nav .nav-center {
-      font-family: 'Playfair Display', serif;
+      font-family: 'DM Serif Display', serif;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       font-size: 1rem;
       color: var(--primary-color);
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
     }
-
-    @media (max-width: 600px) {
-      .top-nav a {
-        font-size: 1.2rem;
-      }
-      .top-nav .nav-center {
-        font-size: 0.8rem;
-        letter-spacing: 1px;
-      }
+    .menu-label {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Work Sans', sans-serif;
     }
-
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem;
+      gap: 1rem;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-family: 'Work Sans', sans-serif;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .mobile-menu a::after {
+      content: '\\203A';
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    #menu-toggle:checked + .mobile-menu {
+      display: flex;
+    }
+    .menu-close {
+      align-self: flex-end;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    .menu-close svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: currentColor;
+    }
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+      .top-nav .nav-center { font-size: 0.8rem; letter-spacing: 1px; }
     }
   </style>
 </head>
 <body>
-  <!-- Top navigation bar with icons -->
   <nav class="top-nav">
     <div class="nav-left">
-      <a href="#" class="icon" aria-label="Menu">
-        <!-- Hamburger icon SVG -->
+      <label for="menu-toggle" class="icon" aria-label="Menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
         </svg>
-      </a>
-      <a href="#" class="icon" aria-label="Search">
-        <!-- Search icon SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-        </svg>
-      </a>
+        <span class="menu-label">Menu</span>
+      </label>
     </div>
     <div class="nav-center">L’s Closet Atelier</div>
-    <div class="nav-right">
-      <a href="#" class="icon" aria-label="Account">
-        <!-- Person icon SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-        </svg>
-      </a>
-      <a href="#" class="icon" aria-label="Bag">
-        <!-- Bag icon SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-        </svg>
-      </a>
-    </div>
+    <div class="nav-right"></div>
   </nav>
-  <header>
-    <div class="inner">
-      <h1>L’s Closet Atelier</h1>
-      <p>Please choose a service</p>
-    </div>
-  </header>
-  <section>
+  <input type="checkbox" id="menu-toggle" hidden>
+  <div class="mobile-menu">
+    <label for="menu-toggle" class="menu-close" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M2.146 2.146a.5.5 0 0 1 .708 0L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </label>
+    <a href="alteration.html">Alteration Requests</a>
+    <a href="costume.html">Couture Costume Requests</a>
+  </div>
+  <!-- First hero -->
+  <section class="hero hero-one">
     <div class="link-options">
       <a href="alteration.html" class="service-link">Alteration Requests</a>
-      <a href="costume.html" class="service-link">Dance Costume Requests</a>
+    </div>
+  </section>
+  <!-- Second hero -->
+  <section class="hero hero-two">
+    <div class="link-options">
+      <a href="costume.html" class="service-link">Couture Costume Requests</a>
     </div>
   </section>
 </body>
