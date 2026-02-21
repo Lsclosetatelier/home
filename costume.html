@@ -7,135 +7,78 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:wght@300;400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root { --primary-color:#000; --secondary-color:#fff; --max-width:900px; }
-    body {
-      margin:0;
-      font-family:'Lora', serif;
-      color:var(--primary-color);
-      background-color:#fdfdfd;
-      line-height:1.6;
-    }
-    .top-nav {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:var(--secondary-color);
-      border-bottom:1px solid #ddd;
-      padding:0.5rem 1rem;
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
-    .top-nav .nav-left,
-    .top-nav .nav-right { display:flex; gap:1rem; align-items:center; flex:1; }
-    .icon { display:flex; align-items:center; gap:0.4rem; cursor:pointer; }
-    .top-nav svg { width:1.4rem; height:1.4rem; fill:currentColor; }
-    .nav-center {
-      font-family:'DM Serif Display', serif;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      font-size:1rem;
-      color:var(--primary-color);
-      flex:1;
-      text-align:center;
-      white-space:nowrap;
-    }
-    .menu-label {
-      font-size:0.8rem;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      font-weight:600;
-      font-family:'Work Sans', sans-serif;
-    }
-    .mobile-menu {
-      display:none;
-      position:fixed;
-      top:0;
-      left:0;
-      width:80%;
-      max-width:320px;
-      height:100vh;
-      background:var(--secondary-color);
-      color:var(--primary-color);
-      flex-direction:column;
-      align-items:flex-start;
-      padding:2rem;
-      gap:1rem;
-      box-shadow:2px 0 8px rgba(0,0,0,0.2);
-      z-index:999;
-    }
-    .mobile-menu a {
-      text-decoration:none;
-      color:var(--primary-color);
-      font-size:1.1rem;
-      letter-spacing:1px;
-      font-family:'Work Sans', sans-serif;
-      text-transform:uppercase;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      width:100%;
-    }
-    /* Remove the chevron to match alteration.html behavior */
-    .mobile-menu a::after { content:''; font-size:1.1rem; line-height:1; }
+    body { margin:0; font-family:'Lora', serif; color:var(--primary-color); background:#fdfdfd; line-height:1.6; }
 
-    #menu-toggle:checked + .mobile-menu { display:flex; }
-    .menu-close { align-self:flex-end; cursor:pointer; margin-bottom:1rem; }
-    .menu-close svg { width:1.5rem; height:1.5rem; fill:currentColor; }
+    /* Nav */
+    .top-nav{
+      display:flex; align-items:center; justify-content:space-between;
+      background:var(--secondary-color); border-bottom:1px solid #ddd;
+      padding:0.5rem 1rem; position:sticky; top:0; z-index:100;
+    }
+    .top-nav .nav-left,.top-nav .nav-right{ display:flex; gap:1rem; align-items:center; flex:1; }
+    .icon{ display:flex; align-items:center; gap:0.4rem; cursor:pointer; }
+    .top-nav svg{ width:1.4rem; height:1.4rem; fill:currentColor; }
+    .nav-center{
+      font-family:'DM Serif Display', serif; font-weight:700;
+      letter-spacing:2px; text-transform:uppercase; font-size:1rem;
+      color:var(--primary-color); flex:1; text-align:center; white-space:nowrap;
+    }
+    .menu-label{
+      font-size:0.8rem; letter-spacing:1px; text-transform:uppercase;
+      font-weight:600; font-family:'Work Sans', sans-serif;
+    }
 
-    section {
-      padding:3rem 1rem;
-      max-width:var(--max-width);
-      margin:2rem auto;
+    /* Mobile menu */
+    .mobile-menu{
+      display:none; position:fixed; top:0; left:0; width:80%; max-width:320px;
+      height:100vh; background:var(--secondary-color); color:var(--primary-color);
+      flex-direction:column; align-items:flex-start; padding:2rem; gap:1rem;
+      box-shadow:2px 0 8px rgba(0,0,0,0.2); z-index:999;
     }
-    form {
-      background:#fff;
-      padding:2rem;
-      border-radius:8px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    .mobile-menu a{
+      text-decoration:none; color:var(--primary-color);
+      font-size:1.1rem; letter-spacing:1px; font-family:'Work Sans', sans-serif;
+      text-transform:uppercase; display:flex; justify-content:space-between;
+      align-items:center; width:100%;
     }
-    .field { margin-bottom:1rem; }
-    label { display:block; margin-bottom:0.4rem; font-weight:600; }
-    input, select, textarea {
-      width:100%;
-      padding:0.6rem;
-      border:1px solid #ccc;
-      border-radius:4px;
-      font-family:'Lora', serif;
-      font-size:1rem;
-      box-sizing:border-box;
+    .mobile-menu a::after{ content:""; }
+    #menu-toggle:checked + .mobile-menu{ display:flex; }
+    .menu-close{ align-self:flex-end; cursor:pointer; margin-bottom:1rem; }
+    .menu-close svg{ width:1.5rem; height:1.5rem; fill:currentColor; }
+
+    /* Form */
+    section{ padding:3rem 1rem; max-width:var(--max-width); margin:2rem auto; }
+    form{ background:#fff; padding:2rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .field{ margin-bottom:1rem; }
+    label{ display:block; margin-bottom:0.4rem; font-weight:600; }
+    input, select, textarea{
+      width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:4px;
+      font-family:'Lora', serif; font-size:1rem; box-sizing:border-box;
     }
-    input[type="checkbox"], input[type="radio"] { width:auto; margin-right:0.5rem; }
-    .checkbox-group, .radio-group { margin-bottom:1rem; }
-    .checkbox-group label, .radio-group label {
-      font-weight:normal;
-      margin-right:1rem;
-      display:inline-flex;
-      align-items:center;
+    input[type="checkbox"], input[type="radio"]{ width:auto; margin-right:0.5rem; }
+    .checkbox-group, .radio-group{ margin-bottom:1rem; }
+    .checkbox-group label, .radio-group label{
+      font-weight:normal; margin-right:1rem; display:inline-flex; align-items:center;
     }
-    button {
-      background:var(--primary-color);
-      color:var(--secondary-color);
-      border:none;
-      padding:0.8rem 2rem;
-      font-size:1rem;
-      border-radius:4px;
-      cursor:pointer;
+    button{
+      background:var(--primary-color); color:var(--secondary-color); border:none;
+      padding:0.8rem 2rem; font-size:1rem; border-radius:4px; cursor:pointer;
       transition:background 0.3s;
     }
-    button:hover { background:#333; }
-    @media (max-width:600px) {
-      .nav-center { font-size:0.8rem; letter-spacing:1px; }
-      form { padding:1.5rem; }
+    button:hover{ background:#333; }
+    @media (max-width:600px){
+      .nav-center{ font-size:0.8rem; letter-spacing:1px; }
+      form{ padding:1.5rem; }
     }
   </style>
 </head>
+
 <body>
   <nav class="top-nav">
     <div class="nav-left">
       <label for="menu-toggle" class="icon" aria-label="Menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
         <span class="menu-label">Menu</span>
       </label>
@@ -157,7 +100,7 @@
   </div>
 
   <section>
-    <!-- NETLIFY FORMS: match alteration.html pattern -->
+    <!-- Netlify form setup (matches alteration.html pattern) -->
     <form name="costume-request"
           method="POST"
           data-netlify="true"
@@ -165,7 +108,6 @@
           enctype="multipart/form-data"
           action="/thanks/">
 
-      <!-- Required hidden fields for Netlify -->
       <input type="hidden" name="form-name" value="costume-request">
       <input type="hidden" name="bot-field">
 
@@ -190,49 +132,50 @@
 
       <div class="field"><label for="studio_name">Dance Studio Name*</label><input type="text" id="studio_name" name="studio_name" required></div>
       <div class="field"><label for="instructor">Instructor / Choreographer*</label><input type="text" id="instructor" name="instructor" required></div>
-      <hr>
 
+      <hr>
       <h3>💃 Performance Details</h3>
-      <div class="field"><label for="event_name">Competition / Event Name*</label><input type="text" id="event_name" name="event_name" required></div>
+      <div class="field"><label for="event_name">Competition / Event Name</label><input type="text" id="event_name" name="event_name"></div>
+
       <div class="field"><label for="performance_date">Performance Date*</label><input type="date" id="performance_date" name="performance_date" required></div>
 
-      <div class="field"><label>Routine Type*</label>
+      <div class="field"><label>Routine Type</label>
         <div class="radio-group">
-          <label><input type="radio" name="routine_type" value="Solo" required> Solo</label>
+          <label><input type="radio" name="routine_type" value="Solo"> Solo</label>
           <label><input type="radio" name="routine_type" value="Duo/Trio"> Duo/Trio</label>
           <label><input type="radio" name="routine_type" value="Group"> Group</label>
         </div>
       </div>
 
-      <div class="field"><label>Dance Style (select all that apply)*</label>
+      <div class="field"><label>Dance Style (select all that apply)</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="dance_style" value="Jazz"> Jazz</label>
-          <label><input type="checkbox" name="dance_style" value="Lyrical"> Lyrical</label>
-          <label><input type="checkbox" name="dance_style" value="Contemporary"> Contemporary</label>
-          <label><input type="checkbox" name="dance_style" value="Ballet"> Ballet</label>
-          <label><input type="checkbox" name="dance_style" value="Musical Theatre"> Musical Theatre</label>
-          <label><input type="checkbox" name="dance_style" value="Tap"> Tap</label>
-          <label><input type="checkbox" name="dance_style" value="Hip Hop"> Hip Hop</label>
-          <label><input type="checkbox" name="dance_style" value="Acro"> Acro</label>
-          <label><input type="checkbox" name="dance_style" value="Other"> Other</label>
+          <label><input type="checkbox" name="dance_style[]" value="Jazz"> Jazz</label>
+          <label><input type="checkbox" name="dance_style[]" value="Lyrical"> Lyrical</label>
+          <label><input type="checkbox" name="dance_style[]" value="Contemporary"> Contemporary</label>
+          <label><input type="checkbox" name="dance_style[]" value="Ballet"> Ballet</label>
+          <label><input type="checkbox" name="dance_style[]" value="Musical Theatre"> Musical Theatre</label>
+          <label><input type="checkbox" name="dance_style[]" value="Tap"> Tap</label>
+          <label><input type="checkbox" name="dance_style[]" value="Hip Hop"> Hip Hop</label>
+          <label><input type="checkbox" name="dance_style[]" value="Acro"> Acro</label>
+          <label><input type="checkbox" name="dance_style[]" value="Other"> Other</label>
         </div>
         <input type="text" id="dance_style_other" name="dance_style_other" placeholder="Other dance style">
       </div>
 
-      <div class="field"><label for="song">Song Title + Artist*</label><input type="text" id="song" name="song" required></div>
-      <div class="field"><label for="dance_story">Describe the dance theme or emotional story*</label><textarea id="dance_story" name="dance_story" rows="4" required></textarea></div>
-      <hr>
+      <div class="field"><label for="song">Song Title + Artist</label><input type="text" id="song" name="song"></div>
+      <div class="field"><label for="dance_story">Describe the dance theme or emotional story</label><textarea id="dance_story" name="dance_story" rows="4"></textarea></div>
 
+      <hr>
       <h3>🎨 Design Vision</h3>
       <div class="field"><label>How should this costume feel on stage? (select all that apply)*</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="costume_feel" value="Elegant"> Elegant</label>
-          <label><input type="checkbox" name="costume_feel" value="Romantic / Flowing"> Romantic / Flowing</label>
-          <label><input type="checkbox" name="costume_feel" value="Glam / Sparkly"> Glam / Sparkly</label>
-          <label><input type="checkbox" name="costume_feel" value="Modern / Edgy"> Modern / Edgy</label>
-          <label><input type="checkbox" name="costume_feel" value="Dramatic / Theatrical"> Dramatic / Theatrical</label>
-          <label><input type="checkbox" name="costume_feel" value="Minimalist Luxe"> Minimalist Luxe</label>
-          <label><input type="checkbox" name="costume_feel" value="Character Inspired"> Character Inspired</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Elegant"> Elegant</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Romantic / Flowing"> Romantic / Flowing</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Glam / Sparkly"> Glam / Sparkly</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Modern / Edgy"> Modern / Edgy</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Dramatic / Theatrical"> Dramatic / Theatrical</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Minimalist Luxe"> Minimalist Luxe</label>
+          <label><input type="checkbox" name="costume_feel[]" value="Character Inspired"> Character Inspired</label>
         </div>
       </div>
 
@@ -251,8 +194,8 @@
       </div>
 
       <div class="field"><label for="design_requests">Must-have details or requests*</label><textarea id="design_requests" name="design_requests" rows="4" required></textarea></div>
-      <hr>
 
+      <hr>
       <h3>✨ Costume Features</h3>
       <div class="field"><label>Base Style*</label>
         <div class="radio-group">
@@ -266,21 +209,21 @@
 
       <div class="field"><label>Design Elements Needed (select all that apply)*</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="design_elements" value="Illusion Mesh"> Illusion Mesh</label>
-          <label><input type="checkbox" name="design_elements" value="Lace / Appliqué"> Lace / Appliqué</label>
-          <label><input type="checkbox" name="design_elements" value="Rhinestones"> Rhinestones</label>
-          <label><input type="checkbox" name="design_elements" value="Fringe"> Fringe</label>
-          <label><input type="checkbox" name="design_elements" value="Sleeves"> Sleeves</label>
-          <label><input type="checkbox" name="design_elements" value="Open Back"> Open Back</label>
-          <label><input type="checkbox" name="design_elements" value="Cutouts"> Cutouts</label>
-          <label><input type="checkbox" name="design_elements" value="Skirt / Overlay"> Skirt / Overlay</label>
-          <label><input type="checkbox" name="design_elements" value="Gloves"> Gloves</label>
-          <label><input type="checkbox" name="design_elements" value="Other"> Other</label>
+          <label><input type="checkbox" name="design_elements[]" value="Illusion Mesh"> Illusion Mesh</label>
+          <label><input type="checkbox" name="design_elements[]" value="Lace / Appliqué"> Lace / Appliqué</label>
+          <label><input type="checkbox" name="design_elements[]" value="Rhinestones"> Rhinestones</label>
+          <label><input type="checkbox" name="design_elements[]" value="Fringe"> Fringe</label>
+          <label><input type="checkbox" name="design_elements[]" value="Sleeves"> Sleeves</label>
+          <label><input type="checkbox" name="design_elements[]" value="Open Back"> Open Back</label>
+          <label><input type="checkbox" name="design_elements[]" value="Cutouts"> Cutouts</label>
+          <label><input type="checkbox" name="design_elements[]" value="Skirt / Overlay"> Skirt / Overlay</label>
+          <label><input type="checkbox" name="design_elements[]" value="Gloves"> Gloves</label>
+          <label><input type="checkbox" name="design_elements[]" value="Other"> Other</label>
         </div>
         <input type="text" id="design_elements_other" name="design_elements_other" placeholder="Other design elements">
       </div>
-      <hr>
 
+      <hr>
       <h3>📏 Measurements</h3>
       <div class="field"><label>How will you provide measurements?*</label>
         <div class="radio-group">
@@ -302,8 +245,8 @@
           <label><input type="radio" name="coverage_level" value="High Cut Line"> High Cut Line</label>
         </div>
       </div>
-      <hr>
 
+      <hr>
       <h3>💎 Sparkle & Performance</h3>
       <div class="field"><label>Rhinestone Coverage Preference*</label>
         <div class="radio-group">
@@ -315,15 +258,15 @@
 
       <div class="field"><label>Movement Requirements (select all that apply)*</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="movement_requirements" value="Turns"> Turns</label>
-          <label><input type="checkbox" name="movement_requirements" value="Acro"> Acro</label>
-          <label><input type="checkbox" name="movement_requirements" value="Floor Work"> Floor Work</label>
-          <label><input type="checkbox" name="movement_requirements" value="Fast Movement"> Fast Movement</label>
-          <label><input type="checkbox" name="movement_requirements" value="Lifts"> Lifts</label>
+          <label><input type="checkbox" name="movement_requirements[]" value="Turns"> Turns</label>
+          <label><input type="checkbox" name="movement_requirements[]" value="Acro"> Acro</label>
+          <label><input type="checkbox" name="movement_requirements[]" value="Floor Work"> Floor Work</label>
+          <label><input type="checkbox" name="movement_requirements[]" value="Fast Movement"> Fast Movement</label>
+          <label><input type="checkbox" name="movement_requirements[]" value="Lifts"> Lifts</label>
         </div>
       </div>
-      <hr>
 
+      <hr>
       <h3>📅 Timeline</h3>
       <div class="field"><label for="ready_date">Date Costume Must Be Competition Ready*</label><input type="date" id="ready_date" name="ready_date" required></div>
 
@@ -333,8 +276,8 @@
           <label><input type="radio" name="rush_order" value="No"> No</label>
         </div>
       </div>
-      <hr>
 
+      <hr>
       <h3>💵 Budget & Investment</h3>
       <div class="field"><label>Investment Range*</label>
         <div class="radio-group">
@@ -344,14 +287,19 @@
           <label><input type="radio" name="investment_range" value="$1200+ Couture"> $1200+ Couture</label>
         </div>
       </div>
-      <hr>
 
+      <hr>
       <h3>🧵 Additional Notes</h3>
-      <div class="field"><label for="additional_notes">Anything else you want the designer to know?*</label><textarea id="additional_notes" name="additional_notes" rows="4" required></textarea></div>
-      <hr>
+      <div class="field"><label for="additional_notes">Anything else you want the designer to know?</label><textarea id="additional_notes" name="additional_notes" rows="4"></textarea></div>
 
+      <hr>
       <h3>✔ Agreement</h3>
-      <div class="field"><label><input type="checkbox" name="agreement" required> I understand this form is a request for custom couture design services and that project acceptance is based on availability and design consultation*</label></div>
+      <div class="field">
+        <label>
+          <input type="checkbox" name="agreement" required>
+          I understand this form is a request for custom couture design services and that project acceptance is based on availability and design consultation*
+        </label>
+      </div>
 
       <button type="submit">Submit</button>
     </form>
