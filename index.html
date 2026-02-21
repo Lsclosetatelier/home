@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L’s Closet Atelier &ndash; Tailoring &amp; Alterations</title>
+  <title>L’s Closet Atelier</title>
   <!-- Load elegant serif and sans‑serif fonts to evoke a high‑fashion vibe -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Icons are embedded inline in the navigation bar; no external icon font is needed -->
   <style>
     :root {
       --primary-color: #000;
       --secondary-color: #fff;
-      --accent-color: #d4af37; /* subtle gold tone */
+      --accent-color: #d4af37;
       --max-width: 900px;
     }
 
@@ -23,11 +22,8 @@
       line-height: 1.6;
     }
 
-    /* Hero section uses a dark, abstract image reminiscent of couture branding
-       The image file should be saved as “background.png” in the same directory
-       as this HTML to ensure it loads correctly when deployed on GitHub Pages. */
     header {
-      background-image: url('background.png');
+      background-image: url('NakupendaPhotography-18.jpeg');
       background-size: cover;
       background-position: center;
       height: 60vh;
@@ -70,73 +66,36 @@
     section {
       padding: 2rem 1rem;
       max-width: var(--max-width);
-      margin: -4rem auto 2rem; /* pull the form up slightly into the hero section */
+      margin: -4rem auto 2rem;
     }
 
-    form {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    form .field {
-      margin-bottom: 1rem;
-    }
-
-    form label {
-      display: block;
-      margin-bottom: 0.4rem;
-      font-weight: 600;
-    }
-
-    form input,
-    form select,
-    form textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    form input[type="checkbox"],
-    form input[type="radio"] {
-      width: auto;
-      margin-right: 0.5rem;
-    }
-
-    .checkbox-group,
-    .radio-group {
-      margin-bottom: 1rem;
-    }
-
-    .checkbox-group label,
-    .radio-group label {
-      font-weight: normal;
-      margin-right: 1rem;
-      display: inline-flex;
+    /* Styles for service links */
+    .link-options {
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 1.5rem;
     }
-
-    button {
+    .service-link {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      padding: 1rem 2rem;
+      background: #fff;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+    .service-link:hover {
       background: var(--primary-color);
       color: var(--secondary-color);
-      border: none;
-      padding: 0.8rem 2rem;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
     }
 
-    button:hover {
-      background: #333;
-    }
-
-    /* Top navigation bar inspired by Chanel.com */
+    /* Top navigation bar styles */
     .top-nav {
       display: flex;
       align-items: center;
@@ -159,7 +118,6 @@
     .top-nav a {
       color: var(--primary-color);
       text-decoration: none;
-      /* Icons within the nav inherit currentColor; size is defined via SVG attributes */
       font-size: 1rem;
       display: flex;
       align-items: center;
@@ -194,18 +152,15 @@
       header h1 {
         font-size: 2rem;
       }
-      form {
-        padding: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- Top navigation bar with menu and icons -->
+  <!-- Top navigation bar with icons -->
   <nav class="top-nav">
     <div class="nav-left">
       <a href="#" class="icon" aria-label="Menu">
-        <!-- Hamburger (list) icon SVG -->
+        <!-- Hamburger icon SVG -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
@@ -236,102 +191,14 @@
   <header>
     <div class="inner">
       <h1>L’s Closet Atelier</h1>
-      <p>Tailoring &amp; Alterations</p>
+      <p>Please choose a service</p>
     </div>
   </header>
-
   <section>
-    <!-- The booking form captures key details recommended by industry templates. -->
-    <!-- Replace the mailto URL with your preferred email address -->
-    <form action="mailto:lsclosetatelier@example.com" method="POST" enctype="multipart/form-data">
-      <!-- Contact Information -->
-      <div class="field">
-        <label for="name">Full Name*</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="field">
-        <label for="email">Email Address*</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="field">
-        <label for="phone">Phone Number*</label>
-        <input type="tel" id="phone" name="phone" required>
-      </div>
-      <div class="field">
-        <label>Preferred Contact Method*</label>
-        <div class="radio-group">
-          <label><input type="radio" name="contact_method" value="Email" required> Email</label>
-          <label><input type="radio" name="contact_method" value="Phone"> Phone</label>
-          <label><input type="radio" name="contact_method" value="Text"> Text</label>
-        </div>
-      </div>
-
-      <!-- Appointment Scheduling removed per user request -->
-
-      <!-- Garment and Alteration Details -->
-      <div class="field">
-        <label for="garment_type">Type of Garment*</label>
-        <select id="garment_type" name="garment_type" required>
-          <option value="">Select garment</option>
-          <option value="Wedding Dress">Wedding Dress</option>
-          <option value="Suit">Suit</option>
-          <option value="Pants">Pants</option>
-          <option value="Dress">Dress</option>
-          <option value="Skirt">Skirt</option>
-          <option value="Blouse">Blouse</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Alteration Type (select all that apply)*</label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="alteration_type" value="Hemming"> Hemming</label>
-          <label><input type="checkbox" name="alteration_type" value="Taking in/Letting out"> Taking&nbsp;in/Letting&nbsp;out</label>
-          <label><input type="checkbox" name="alteration_type" value="Sleeve adjustments"> Sleeve adjustments</label>
-          <label><input type="checkbox" name="alteration_type" value="Waist/Hip adjustments"> Waist/Hip adjustments</label>
-          <label><input type="checkbox" name="alteration_type" value="Shoulder adjustments"> Shoulder adjustments</label>
-          <label><input type="checkbox" name="alteration_type" value="Bust adjustments"> Bust adjustments</label>
-          <label><input type="checkbox" name="alteration_type" value="Repairs"> Repairs</label>
-          <label><input type="checkbox" name="alteration_type" value="Other"> Other</label>
-        </div>
-      </div>
-      <div class="field">
-        <label for="quantity">Quantity of Items*</label>
-        <input type="number" id="quantity" name="quantity" min="1" required>
-      </div>
-      <div class="field">
-        <label for="deadline_needed">Do you need the items by a certain date?</label>
-        <input type="date" id="deadline_needed" name="deadline_needed">
-      </div>
-      <div class="field">
-        <label for="event_date">Event Date (Wedding or Special Event)</label>
-        <input type="date" id="event_date" name="event_date">
-      </div>
-      <div class="field">
-        <label for="details">Alteration Details / Additional Information*</label>
-        <textarea id="details" name="details" rows="4" required></textarea>
-      </div>
-      <div class="field">
-        <label for="photo">Upload Photo of Garment</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
-      </div>
-      <div class="field">
-        <label for="referral">How did you hear about us?</label>
-        <select id="referral" name="referral">
-          <option value="">Select</option>
-          <option value="Social Media">Social Media</option>
-          <option value="Friend or Family">Friend or Family</option>
-          <option value="Advertisement">Advertisement</option>
-          <option value="Search Engine">Search Engine</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label><input type="checkbox" name="consent" required> I acknowledge the cancellation fee*</label>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div class="link-options">
+      <a href="alteration.html" class="service-link">Alteration Requests</a>
+      <a href="costume.html" class="service-link">Dance Costume Requests</a>
+    </div>
   </section>
-
 </body>
 </html>
